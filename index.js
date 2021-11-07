@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const Discord = require("discord.js-12");
 const { prefix, token } = require("./config.json");
 const ytdl = require("ytdl-core");
 const scdl = require('soundcloud-downloader').default
