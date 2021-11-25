@@ -28,6 +28,8 @@ client.once("disconnect", () => {
 client.on("message", async message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
+  
+  console.log(message.content);
 
   const serverQueue = queue.get(message.guild.id);
 
@@ -281,6 +283,7 @@ async function play(guild, song) {
   var stream1;
   if (song.url.startsWith("https://www.youtube.com/")){
     stream1 = await ytdl(song.url, {
+		      highWaterMark: 1<<25,
               filter: "audioonly",
               quality: "highestaudio",
 	});
